@@ -452,7 +452,8 @@ img.zoomed-img {
 }
 
 #loginModalLabel,
-#registerModalLabel {
+#registerModalLabel,
+#commentModalLabel {
 	font-size: 30px;
 }
 
@@ -630,6 +631,16 @@ a.play-video-icon {
 	text-indent: -9999px;
 }
 
+.visible-link {
+	opacity: 1;
+	visibility: visible;
+}
+
+.not-visible-link {
+	opacity: 0;
+	visibility: visible;
+}
+
 .bigger-portfolio-project {
 	min-height: 220px;
 }
@@ -704,4 +715,9 @@ span.fn, span.fn a {
 
 .leave-comment {
 	margin-bottom: 200px;
+	cursor: pointer;
+}
+
+.leave-comment:hover {
+	color: #FFD260;
 }

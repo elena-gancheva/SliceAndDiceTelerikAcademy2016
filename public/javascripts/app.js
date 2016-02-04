@@ -1,7 +1,7 @@
 $(function () {
 	'use strict';
 
-	userActionsModule.addLoginEvents();
+	userActionsModule.addUserActionsEvents();
 	menuModule.addEvents();
 	menuModule.startCarousel();
 

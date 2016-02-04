@@ -23,19 +23,19 @@
 						</div>
 						<!-- Collect the nav links, forms, and other content for toggling -->
 						<div class="collapse navbar-collapse navbar-ex1-collapse">
-                            <ul class="nav navbar-nav top-menu">
-                                <li class="home"><a href="#">Home</a></li>
-                                <li><a href="#">Themes</a></li>
-                                <li><a href="#">Features</a></li>
-                                <li class="portfolio-about"><a href="#">About</a></li>
-                                <li class="comments"><a href="#">Blog</a></li>
-                                <li><a href="#">Support</a></li>
-                                <li><a href="#">Affiliates</a></li>
-                                <li data-toggle="modal" data-target="#modalLoginForm"><a href="#">Log in</a></li>
-                                <li data-toggle="modal" data-target="#modalRegisterForm"><a href="#">Join Today</a></li>
-                                <li><a href="#">Get A Quote</a></li>
-                                <li class="open-login"><a href="#">Location</a></li>
-                            </ul>
+							<ul class="nav navbar-nav top-menu">
+								<li class="home"><a href="#">Home</a></li>
+								<li><a href="#">Themes</a></li>
+								<li class="features"><a href="#">Features</a></li>
+								<li class="recentposts"><a href="#">About</a></li>
+								<li class="comments"><a href="#">Blog</a></li>
+								<li><a href="#">Support</a></li>
+								<li><a href="#">Affiliates</a></li>
+								<li data-toggle="modal" data-target="#modalLoginForm"><a href="#">Log in</a></li>
+								<li data-toggle="modal" data-target="#modalRegisterForm"><a href="#">Join Today</a></li>
+								<li><a href="#">Get A Quote</a></li>
+								<li class="open-login"><a href="#">Location</a></li>
+							</ul>
 							<ul class="nav navbar-nav navbar-right">
 								<!--- Social icons -->
 								<li class="social-icons twitter">
@@ -174,10 +174,45 @@
 					</div>
 
 					<div class="row">
-						<h2 class="post-title col-md-8 leave-comment">
+						<h2 class="post-title col-md-8 leave-comment" data-toggle="modal" data-target="#modalCommentForm" rel="media">
 							Leave a Comment
-							<a href="#"></a>
+							<a></a>
 						</h2>
+						<div class="modal fade" id="modalCommentForm" tabindex="-1" role="dialog"
+							 aria-labelledby="commentModalLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<!-- Modal Header -->
+									<div class="modal-header">
+										<button type="button" class="close"
+												data-dismiss="modal">
+											<span aria-hidden="true">&times;</span>
+											<span class="sr-only">Close</span>
+										</button>
+										<h2 class="modal-title" id="commentModalLabel">
+											Leave a comment
+										</h2>
+									</div>
+									<!-- Modal Body -->
+									<div class="modal-body">
+										<form role="form" id="commentForm" action="comment" method="post">
+											<div class="form-group">
+												<label for="commentInput">Your comment</label>
+												<textarea rows="5" class="form-control" name="comment"
+													id="commentInput" placeholder="Comment here..."/>
+												</textarea>
+											</div>
+											<div class="modal-footer">
+												<button type="submit" class="btn btn-success">
+													Comment
+												</button>
+											</div>
+										</form>
+
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 				<!-- Right text fields container-->

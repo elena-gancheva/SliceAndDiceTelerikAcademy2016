@@ -1,6 +1,3 @@
-/**
- * Created by Elena on 08/01/2016.
- */
 'use strict';
 var mongoose = require('mongoose');
 var User = require('../models/User');

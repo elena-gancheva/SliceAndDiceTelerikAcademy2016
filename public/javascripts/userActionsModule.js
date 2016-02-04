@@ -1,9 +1,7 @@
 var userActionsModule = (function () {
 	'use strict';
 
-	function addLoginEvents() {
-
-
+	function addUserActionsEvents() {
 		$('.test-button-dude').on('click', function () {
 			$.ajax({
 				url: 'blog/postArticle',
@@ -79,6 +77,7 @@ var userActionsModule = (function () {
 					notifier.notifyForUserActions('success','You have logged in successfully! :)');
 					$('#modalLoginForm').hide();
 					$('.modal-backdrop.in').hide();
+
 				},
 				errorCallback: function() {
 					notifier.notifyForUserActions('error','Wrong username or password. Please try again! :(');
@@ -107,10 +106,17 @@ var userActionsModule = (function () {
 				}
 			});
 		});
+
+		// comment
+		$('#commentForm').submit(function (e){
+			e.preventDefault();
+
+			var $this = $(this);
+		});
 	}
 
 	return {
-		addLoginEvents: addLoginEvents
+		addUserActionsEvents: addUserActionsEvents
 	};
 
 })();

@@ -8,7 +8,7 @@ var menuModule = (function () {
 			startCarousel();
 		});
 
-		$('.portfolio-about').off('click').on('click', function () {
+		$('.recentposts').off('click').on('click', function () {
 			$('#body-container').html(templates.recentposts());
 			addEvents();
 		});
@@ -18,12 +18,24 @@ var menuModule = (function () {
 			addEvents();
 		});
 
-		$('.zoom-icon').on('click', function() {
+		$('.features').off('click').on('click', function () {
+			$('#body-container').html(templates.portfolio());
+			addEvents();
+		});
+
+		$('.zoom-icon').off('click').on('click', function() {
 			var $this = $(this),
 				$currentImageToBeViewed = $this.siblings('.project-image'),
 				$popupContainer = $this.siblings('.bigger-view');
 
 			$popupContainer.removeClass('hidden');
+			addEvents();
+		});
+
+		$('.leave-comment').off('click').on('click', function () {
+			$('.leave-comment-modal').removeClass('hidden');
+			console.log('ksksks');
+			addEvents();
 		});
 	}
 
