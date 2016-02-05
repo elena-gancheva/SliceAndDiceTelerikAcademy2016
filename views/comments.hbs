@@ -25,10 +25,18 @@
 						<div class="collapse navbar-collapse navbar-ex1-collapse">
 							<ul class="nav navbar-nav top-menu">
 								<li class="home"><a href="#">Home</a></li>
-								<li><a href="#">Themes</a></li>
+								<li class="dropdown themes-dropdown">
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Themes</a>
+									<ul class="dropdown-menu">
+										<li><a href="#">HTML</a></li>
+										<li><a href="#">CSS</a></li>
+										<li><a href="#">JavaScript</a></li>
+
+									</ul>
+								</li>
 								<li class="features"><a href="#">Features</a></li>
 								<li class="recentposts"><a href="#">About</a></li>
-								<li class="comments"><a href="#">Blog</a></li>
+								<li class="comments"><a href="#">Weekly topic</a></li>
 								<li><a href="#">Support</a></li>
 								<li><a href="#">Affiliates</a></li>
 								<li data-toggle="modal" data-target="#modalLoginForm"><a href="#">Log in</a></li>
@@ -60,7 +68,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="category-name">
-							<h1 class="category-title">The Post Title Goes Here</h1>
+							<h1 class="category-title"></h1>
 						</div>
 					</div>
 				</div>
@@ -76,11 +84,11 @@
 
 				<div class="row">
 					<div id="breadcrumbs" class="col-md-3 col-xs-12 col-sm-12">
-						<a href="#">Home</a>
+						<a href="#" class="breadcrumb-home">Home</a>
 						<span class="raquo">&#187</span>
 						<a href="#">Blog</a>
 						<span class="raquo">&#187</span>
-						<a href="#">Tema tema tema tema</a>
+						<a href="#" class="current-blog-section"></a>
 					</div>
 				</div>
 
@@ -90,12 +98,12 @@
 				<div class="col-md-8 col-xs-12 col-sm-12 blog-post">
 					<div class="row">
 						<h2 class="post-title col-md-8">
-							<a href="#">The Post Title Goes Here</a>
+							<a href="#" class="post-title-link"></a>
 						</h2>
 					</div>
 					<div class="row">
 						<p class="posted-by">
-							<span>Posted by Admin on March 13, 2010 in Some Category | 30 Comments</span>
+							<span>Posted by Admin on March 13, 2010 in <span class="weekly-category-titile">Some Category<span> | 30 Comments</span>
 						</p>
 					</div>
 					<div class="row">
@@ -104,7 +112,7 @@
 								<img src="images/p18.jpg" class="project-image img-responsive" alt="Make A Wish"/>
 							</div>
 						</div>
-						<div class="col-md-8">
+						<div class="col-md-8 post-title-content">
 							<p class="post-txt">Rhoncus quis, varius sed velit. Mauris quis nunc eu nunc molestie
 								egestas et sit amet odio. Morbi lacinia velit in nibh sodales sed pharetra sem feugiat.
 								Vivamus ut cursus augue. Integer sit amet arcu lorem, at egestas tellus. Phasellus
@@ -122,6 +130,7 @@
 							<a href="#">30 Comments</a>
 						</h2>
 					</div>
+					<div class="comments-container">
 					<div class="row">
 						<div class="col-md-2 user-comments">
 							<div class="project user-image-container">
@@ -172,11 +181,11 @@
 							<div class="comment-arrow hidden-xs hidden-sm"></div>
 						</div>
 					</div>
+					</div>
 
-					<div class="row">
+					<div class="row leave-comment-row">
 						<h2 class="post-title col-md-8 leave-comment" data-toggle="modal" data-target="#modalCommentForm" rel="media">
 							Leave a Comment
-							<a></a>
 						</h2>
 						<div class="modal fade" id="modalCommentForm" tabindex="-1" role="dialog"
 							 aria-labelledby="commentModalLabel" aria-hidden="true">
@@ -195,20 +204,17 @@
 									</div>
 									<!-- Modal Body -->
 									<div class="modal-body">
-										<form role="form" id="commentForm" action="comment" method="post">
+										<form role="form" id="commentForm" action="blog/postComment" method="post" onsubmit="return false;">
 											<div class="form-group">
 												<label for="commentInput">Your comment</label>
-												<textarea rows="5" class="form-control" name="comment"
-													id="commentInput" placeholder="Comment here..."/>
+												<textarea rows="5" class="form-control" name="content"
+													id="commentInput" placeholder="Comment here...">
 												</textarea>
 											</div>
-											<div class="modal-footer">
-												<button type="submit" class="btn btn-success">
-													Comment
-												</button>
-											</div>
+											<button type="button" class="btn btn-success add-comment-btn">
+												Comment
+											</button>
 										</form>
-
 									</div>
 								</div>
 							</div>

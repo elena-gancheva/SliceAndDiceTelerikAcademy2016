@@ -6,7 +6,7 @@ function ensureLocalAuthenticated(req, res, next) {
 	if (req.isAuthenticated()) {
 		return next();
 	}
-	res.json({
+	res.status(404).json({
 		error: 'Not authenticated!'
 	});
 }

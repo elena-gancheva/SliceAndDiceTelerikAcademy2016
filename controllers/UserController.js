@@ -6,7 +6,8 @@ exports.register = function (req, res) {
 	console.log("registering: " + req.body.firstName);
 	User.register(new User({
 		username: req.body.username,
-		firstName: req.body.firstname
+		firstName: req.body.firstname,
+		userImageUrl: req.body.userImageUrl
 	}), req.body.password, function (err, user) {
 		if (err) {
 			console.log(err);
@@ -50,8 +51,7 @@ exports.getLogin = function (req, res) {
 			user: req.user
 		});
 
-	} //res.send(500, {status:500, message: 'internal error', type:'internal'}); == deprecated
-
+	} //res.send(500, {status:500, message: 'i
 
 	res.send({
 		success: false,

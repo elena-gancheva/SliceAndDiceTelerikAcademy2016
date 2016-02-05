@@ -10,7 +10,7 @@
 						</a>
 					</div>
 				</div>
-				<div class="container">
+				<div class="container second-container">
 					<nav class="navbar navbar-default page-menu-content" role="navigation">
 						<div class="navbar-header">
 							<button type="button" class="navbar-toggle" data-toggle="collapse"
@@ -25,10 +25,18 @@
 						<div class="collapse navbar-collapse navbar-ex1-collapse">
 							<ul class="nav navbar-nav top-menu">
 								<li class="home"><a href="#">Home</a></li>
-								<li><a href="#">Themes</a></li>
+								<li class="dropdown themes-dropdown">
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Themes</a>
+									<ul class="dropdown-menu">
+										<li><a href="#">HTML</a></li>
+										<li><a href="#">CSS</a></li>
+										<li><a href="#">JavaScript</a></li>
+
+									</ul>
+								</li>
 								<li class="features"><a href="#">Features</a></li>
 								<li class="recentposts"><a href="#">About</a></li>
-								<li class="comments"><a href="#">Blog</a></li>
+								<li class="comments"><a href="#">Weekly topic</a></li>
 								<li><a href="#">Support</a></li>
 								<li><a href="#">Affiliates</a></li>
 								<li data-toggle="modal" data-target="#modalLoginForm"><a href="#">Log in</a></li>
@@ -58,156 +66,44 @@
 					</nav>
 				</div>
 				<!-- END of Top menu container -->
-
 				<div id="featured">
 					<div class="container-fluid">
-						<div class="row">
-							<div id="wrapper col-md-12 col-xs-8 col-xs-offset-2">
-								<div id="carousel">
-									<div class="hidden-xs hidden-sm">
-										<p class="overlay hidden"></p>
-										<img src="images/0.jpg" width="240" height="150"/>
-									</div>
+						<div class="row carousel-row">
+								<div class="hidden-xs hidden-sm col-md-2 col-md-offset-1">
+									<p class="overlay hidden"></p>
+									<img class="img-responsive" src="images/0.jpg"/>
+								</div>
 
-									<div class="hidden-xs hidden-sm">
-										<p class="overlay hidden"></p>
-										<img src="http://fc09.deviantart.net/fs46/i/2009/172/3/5/Party_people_by_ThePreseT.png"
-											 width="240" height="150"/>
-									</div>
-									<div class="hidden-xs hidden-sm">
-										<p class="overlay hidden"></p>
-										<img src="http://media.teentimes.com/uploads/2015/06/giphy-74.gif" width="400"
-											 height="250"/>
-									</div>
-									<div class="hidden-xs hidden-sm">
-										<p class="overlay hidden"></p>
-										<img src="http://www.dailybackgrounds.com/wp-content/uploads/2014/11/people-enjoying-new-year-party.jpg"
-											 width="400" height="250"/>
-									</div>
-									<div class="hidden-xs hidden-sm">
-										<p class="overlay hidden"></p>
-										<img src="https://49.media.tumblr.com/e85327ce6ddd13629e86e5ba1701d9e3/tumblr_nh8z0pl7W81u2uymso1_500.gif"
-											 width="400" height="250"/>
-									</div>
-									<div class="hidden-xs hidden-sm">
-										<img src="http://www.suport.cz/wp-content/uploads/2013/11/tumblr_md69idww7b1riivzjo1_500_large.jpg"
-											 width="240" height="150"/>
-									</div>
-									<div class="hidden-xs hidden-sm">
-										<img src="http://www.ewallpapers.eu/w_show/let--s-party-1280-1024-6774.jpg"
-											 width="240" height="150"/>
-									</div>
-									<div class="hidden-xs hidden-sm">
-										<img src="libs/carousel/img/fw3.jpg" width="400" height="250"/>
-									</div>
-									<div class="hidden-xs hidden-sm">
-										<img src="http://s3.favim.com/orig/44/blue-calm-calm-down-crown-flashing-Favim.com-375188.gif"
-											 width="400" height="250"/>
-									</div>
-									<div class="hidden-xs hidden-sm">
-										<img src="libs/carousel/img/fw1.jpg" width="240" height="150"/>
-									</div>
-									<div class="hidden-xs hidden-sm">
-										<img src="https://s-media-cache-ak0.pinimg.com/originals/10/32/e1/1032e1a6cafffa9544f1fbc74506ef15.gif"
-											 width="240" height="150"/>
-									</div>
-									<div class="hidden-xs hidden-sm">
-										<img src="http://cdn.mtlblog.com/uploads/2015/09/pastime.jpg" width="400"
-											 height="250"/>
-									</div>
-									<div class="hidden-xs hidden-sm">
-										<img src="http://www.ewallpapers.eu/w_show/let--s-party-1280-1024-6774.jpg"
-											 width="400" height="250"/>
-									</div>
-									<div class="hidden-xs hidden-sm">
-										<img src="libs/carousel/img/fw1.jpg" width="240" height="150"/>
-									</div>
-									<div class="hidden-xs hidden-sm">
-										<img src="https://45.media.tumblr.com/b738045afc8bd733a038f8869c4fcbd4/tumblr_nfynegkGMu1s4y1ybo1_500.gif"
-											 width="240" height="150"/>
-									</div>
-									<div class="hidden-xs hidden-sm">
-										<img src="libs/carousel/img/fw3.jpg" width="400" height="250"/>
-									</div>
-									<div class="hidden-xs hidden-sm">
-										<img src="libs/carousel/img/fw4.jpg" width="400" height="250"/>
-									</div>
-									<div class="hidden-xs hidden-sm">
-										<img src="libs/carousel/img/fw3.jpg" width="400" height="250"/>
-									</div>
-									<div class="hidden-xs hidden-sm">
-										<img src="http://s3.favim.com/orig/44/blue-calm-calm-down-crown-flashing-Favim.com-375188.gif"
-											 width="400" height="250"/>
-									</div>
-									<div class="hidden-xs hidden-sm">
-										<img src="libs/carousel/img/fw1.jpg" width="240" height="150"/>
-									</div>
-									<div class="hidden-xs hidden-sm">
-										<img src="https://s-media-cache-ak0.pinimg.com/originals/10/32/e1/1032e1a6cafffa9544f1fbc74506ef15.gif"
-											 width="240" height="150"/>
-									</div>
-									<div class="hidden-xs hidden-sm">
-										<img src="http://cdn.mtlblog.com/uploads/2015/09/pastime.jpg" width="400"
-											 height="250"/>
-									</div>
-									<div class="hidden-xs hidden-sm">
-										<img src="http://www.ewallpapers.eu/w_show/let--s-party-1280-1024-6774.jpg"
-											 width="400" height="250"/>
-									</div>
-									<div class="hidden-xs hidden-sm">
-										<img src="libs/carousel/img/fw1.jpg" width="240" height="150"/>
-									</div>
-									<div class="hidden-xs hidden-sm">
-										<img src="https://45.media.tumblr.com/b738045afc8bd733a038f8869c4fcbd4/tumblr_nfynegkGMu1s4y1ybo1_500.gif"
-											 width="240" height="150"/>
-									</div>
-									<div class="hidden-xs hidden-sm">
-										<img src="libs/carousel/img/fw3.jpg" width="400" height="250"/>
-									</div>
-									<div class="hidden-xs hidden-sm">
-										<img src="libs/carousel/img/fw4.jpg" width="400" height="250"/>
-									</div>
-									<div class="hidden-xs hidden-sm">
-										<img src="libs/carousel/img/fw3.jpg" width="400" height="250"/>
-									</div>
-									<div class="hidden-xs hidden-sm">
-										<img src="http://s3.favim.com/orig/44/blue-calm-calm-down-crown-flashing-Favim.com-375188.gif"
-											 width="400" height="250"/>
-									</div>
-									<div class="hidden-xs hidden-sm">
-										<img src="libs/carousel/img/fw1.jpg" width="240" height="150"/>
-									</div>
-									<div class="hidden-xs hidden-sm">
-										<img src="https://s-media-cache-ak0.pinimg.com/originals/10/32/e1/1032e1a6cafffa9544f1fbc74506ef15.gif"
-											 width="240" height="150"/>
-									</div>
-									<div class="hidden-xs hidden-sm">
-										<img src="http://cdn.mtlblog.com/uploads/2015/09/pastime.jpg" width="400"
-											 height="250"/>
-									</div>
-									<div class="hidden-xs hidden-sm">
-										<img src="http://www.ewallpapers.eu/w_show/let--s-party-1280-1024-6774.jpg"
-											 width="400" height="250"/>
-									</div>
-									<div class="hidden-xs hidden-sm">
-										<img src="libs/carousel/img/fw1.jpg" width="240" height="150"/>
-									</div>
-									<div class="hidden-xs hidden-sm">
-										<img src="https://45.media.tumblr.com/b738045afc8bd733a038f8869c4fcbd4/tumblr_nfynegkGMu1s4y1ybo1_500.gif"
-											 width="240" height="150"/>
-									</div>
-									<div class="hidden-xs hidden-sm">
-										<img src="libs/carousel/img/fw3.jpg" width="400" height="250"/>
-									</div>
-									<div class="hidden-xs hidden-sm">
-										<img src="libs/carousel/img/fw4.jpg" width="400" height="250"/>
+								<div class="hidden-xs hidden-sm col-md-2">
+									<p class="overlay hidden"></p>
+									<img class="img-responsive" src="images/party-1.jpg"/>
+								</div>
+
+								<div class="hidden-xs hidden-sm col-md-2 active-img-container">
+									<div>
+										<!-- <img class="img-responsive active-img" src="http://media.teentimes.com/uploads/2015/06/giphy-74.gif"/> -->
+										<div class="active-img"></div>
+										<p class="overlay hidden">
+										<div class="additional hidden">
+											<a class="prevslide" href="#"></a>
+											<a class="nextslide" href="#"></a>
+											<a class="featured-zoom fancybox" href="" rel="featured" title="View more..."></a>
+											<a class="featured-more" href=""></a>
+										</div>
+										<div class="active-img-title hidden">John is a party animal :)</div>
+										</p>
 									</div>
 								</div>
-								<!-- <div id="nav">
-									<a id="prev" href="#">&laquo; prev</a>
-									<a id="next" href="#">next &raquo;</a>
-								</div> -->
-							</div>
+								<div class="hidden-xs hidden-sm col-md-2 width-40">
+								</div>
+								<div class="hidden-xs hidden-sm col-md-2">
+									<p class="overlay hidden"></p>
+									<img class="img-responsive" src="images/party-3.jpg"/>
+								</div>
+								<div class="hidden-xs hidden-sm col-md-2">
+									<p class="overlay hidden"></p>
+									<img class="img-responsive" src="images/party-2.jpg"/>
+								</div>
 						</div>
 					</div>
 				</div>
@@ -538,7 +434,7 @@
 					</div>
 					<div class="form-group">
 						<label for="user-image">Your image url</label>
-						<input type="text" class="form-control"
+						<input type="text" class="form-control" name="userImageUrl"
 							   id="user-image" placeholder="Image url"/>
 					</div>
 					<div class="form-group">

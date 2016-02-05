@@ -25,10 +25,18 @@
 						<div class="collapse navbar-collapse navbar-ex1-collapse">
 							<ul class="nav navbar-nav top-menu">
 								<li class="home"><a href="#">Home</a></li>
-								<li><a href="#">Themes</a></li>
+								<li class="dropdown themes-dropdown">
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Themes</a>
+									<ul class="dropdown-menu">
+										<li><a href="#">HTML</a></li>
+										<li><a href="#">CSS</a></li>
+										<li><a href="#">JavaScript</a></li>
+
+									</ul>
+								</li>
 								<li class="features"><a href="#">Features</a></li>
 								<li class="recentposts"><a href="#">About</a></li>
-								<li class="comments"><a href="#">Blog</a></li>
+								<li class="comments"><a href="#">Weekly topic</a></li>
 								<li><a href="#">Support</a></li>
 								<li><a href="#">Affiliates</a></li>
 								<li data-toggle="modal" data-target="#modalLoginForm"><a href="#">Log in</a></li>
@@ -76,7 +84,7 @@
 
 				<div class="row">
 					<div id="breadcrumbs" class="col-md-3 col-xs-12 col-sm-12">
-						<a href="#">Home</a>
+						<a href="#" class="breadcrumb-home">Home</a>
 						<span class="raquo">&#187</span>
 						<a href="#">Blog</a>
 						<span class="raquo">&#187</span>

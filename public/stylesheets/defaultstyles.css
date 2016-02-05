@@ -51,15 +51,19 @@ body {
 
 .overlay {
 	position: absolute;
-	top: 0;
-	left: -105px;
-	width: 500px;
-	height: 345px;
+	cursor: pointer;
+	top: -62px;
+	left: -66px;
+	width: 528px;
+	height: 347px;
 	z-index: 10;
-	background-color: rgba(255, 255, 255, 0.5);
-	/*pointer-events: none;*/
+	background-color: rgba(255, 255, 255, 0.3);
 }
 
 .hidden {
 	display: none;
+}
+
+.width-40 {
+	width: 40px;
 }

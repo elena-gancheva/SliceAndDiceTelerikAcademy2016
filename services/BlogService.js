@@ -51,6 +51,7 @@ exports.addComment = function (input, callback) {
 	var user = input.user;
 	var article = input.article;
 
+
 	if (data && user && data.articleId && typeof data.content === 'string') {
 		createdComment = new Comment({
 			_creator: user._id,

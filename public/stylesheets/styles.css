@@ -1,4 +1,17 @@
+body {
+	overflow: auto;
+	padding-right: 0;
+}
+
 /*** HEADER STYLES ***/
+.modal {
+	overflow-y: auto;
+}
+
+.modal-open {
+	overflow: auto;
+}
+
 #top .container.first-container {
 	padding-bottom: 0;
 }
@@ -17,10 +30,6 @@
 
 #bottom-light {
 	background: url(../images/bottom-light-bg.png) no-repeat bottom center;
-}
-
-#top .container {
-	padding-bottom: 60px;
 }
 
 #logo {
@@ -61,7 +70,39 @@
 }
 
 .navbar .navbar-collapse {
+	text-align: left;
+}
+
+.navbar .navbar-collapse li.social-icons {
+	display: inline-block;
+	margin-right: 0;
+}
+
+.navbar .navbar-collapse .navbar-right {
 	text-align: center;
+	padding-left: 25px;
+}
+
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+	background: transparent;
+	background-color: transparent;
+	border: none;
+	color: #fff;
+}
+
+.dropdown-menu {
+	background-color: #323B44;
+	border-radius: 8px;
+	z-index: 999999999;
+}
+
+.dropdown-menu li {
+	padding: 5px 140px 10px 25px;
+}
+
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+	background-color: transparent;
+	background-image: none;
 }
 
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
@@ -98,7 +139,57 @@ li.social-icons {
 #featured {
 	overflow: hidden;
 	min-height: 403px;
+	margin-top: 60px;
 	position: relative;
+}
+
+.carousel-row {
+	padding-top: 60px;
+	padding-bottom: 200px;
+}
+
+.carousel-row > .col-md-offset-1 {
+	margin-left: 6.9%;
+}
+
+/*.carousel-row div {
+	margin-right: 25px;
+}*/
+
+.active-img-container {
+	z-index: 10;
+}
+
+.active-img {
+	background: url(http://media.teentimes.com/uploads/2015/06/giphy-74.gif) no-repeat;
+	cursor: pointer;
+	height: 190px;
+	width: 377px;
+	transform: scale3d(1.4,2,1.6);
+	-webkit-box-shadow: 2px 9px 31px -2px rgba(0,0,0,0.75);
+	-moz-box-shadow: 2px 9px 31px -2px rgba(0,0,0,0.75);
+	box-shadow: 2px 9px 31px -2px rgba(0,0,0,0.75);
+}
+
+.active-img-title {
+	position: absolute;
+	color: #fff;
+	text-shadow: 1px 1px 1px #a0a5a6;
+	left: -65px;
+	z-index: 99999;
+	bottom: -85px;
+	padding: 20px;
+	border-top: 1px solid #537b80;
+	font-size: 24px;
+	border-bottom: 1px solid #537b80;
+	width: 525px;
+	border-left: 1px solid #537b80;
+	margin: 0;
+	background: -moz-linear-gradient(left, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.34) 47%, rgba(0,0,0,0.28) 57%, rgba(0,0,0,0.21) 68%, rgba(0,0,0,0.11) 84%, rgba(0,0,0,0) 100%);
+	background: -webkit-linear-gradient(left, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0.34) 47%,rgba(0,0,0,0.28) 57%,rgba(0,0,0,0.21) 68%,rgba(0,0,0,0.11) 84%,rgba(0,0,0,0) 100%);
+	background: linear-gradient(to right, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0.34) 47%,rgba(0,0,0,0.28) 57%,rgba(0,0,0,0.21) 68%,rgba(0,0,0,0.11) 84%,rgba(0,0,0,0) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=1 );
+}
 }
 
 .active-image-holder img {
@@ -132,6 +223,40 @@ li.social-icons {
 	z-index: 2;
 	background: url(../images/active-slide-bg.png) no-repeat;
 	padding: 6px 6px 25px;
+}
+
+#featured a.prevslide {
+	background: url(../images/featured-left-arrow.png) no-repeat;
+	left: 29px;
+}
+
+#featured a.nextslide {
+	background: url(../images/featured-right-arrow.png) no-repeat;
+	right: 30px;
+}
+
+#featured a.featured-zoom {
+	background: url(../images/featured-zoom.png) no-repeat;
+	left: 211px;
+}
+
+#featured a.featured-more {
+	background: url(../images/featured-more.png) no-repeat;
+	left: 263px;
+}
+
+.additional {
+	z-index: 999999;
+	position: absolute;
+	width: 555px;
+	top: 50%;
+	left: -73px;
+}
+
+.additional a {
+	position: absolute;
+	height: 50px;
+	width: 45px;
 }
 
 /*** CONTENT STYLES ***/
@@ -457,6 +582,9 @@ img.zoomed-img {
 	font-size: 30px;
 }
 
+.modal-content {
+	padding-bottom: 30px;
+}
 
 /* blogstyles css */
 ul {
@@ -464,7 +592,7 @@ ul {
 }
 
 .category-name {
-	margin-bottom: -40px;
+	padding-bottom: 15px;
 }
 
 .category-title {
@@ -709,9 +837,9 @@ span.fn, span.fn a {
 	margin-top: 0;
 }
 
-.reply-comment {
+/*.reply-comment {
 	margin-bottom: 55px;
-}
+}*/
 
 .leave-comment {
 	margin-bottom: 200px;
@@ -720,4 +848,18 @@ span.fn, span.fn a {
 
 .leave-comment:hover {
 	color: #FFD260;
+}
+
+.leave-comment-row {
+	padding-top: 55px;
+}
+
+/*** HIDE ELEMENTS ON CERTAIN RESOLUTION ***/
+@media (max-width: 1800px) {
+	#featured {
+		display: none;
+	}
+	.second-container {
+		padding-bottom: 60px;
+	}
 }

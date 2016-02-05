@@ -1,8 +1,10 @@
 $(function () {
 	'use strict';
 
-	userActionsModule.addUserActionsEvents();
 	menuModule.addEvents();
-	menuModule.startCarousel();
+	userActionsModule.loginUser();
+	userActionsModule.registerUser();
+	userActionsModule.postComment();
+
 
 });

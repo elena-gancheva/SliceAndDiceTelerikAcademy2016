@@ -1,68 +1,8 @@
 var userActionsModule = (function () {
 	'use strict';
 
-	function addUserActionsEvents() {
-		$('.test-button-dude').on('click', function () {
-			$.ajax({
-				url: 'blog/postArticle',
-				type: 'POST',
-				crossDomain: true,
-				xhrFields: {
-					withCredentials: true
-				},
-				data: {title: 'Yordan e gospodar!', content: 'Top kek.'},
-				success: function (data, textStatus, jqXHR) {
-					//data: return data from server`    1
-					console.log(data);
-				},
-				error: function (jqXHR, textStatus, errorThrown) {
-					//if fails
-					alert('it didnt work');
-				}
-			});
-		});
-
-		$('.test-button-dude2').on('click', function () {
-			$.ajax({
-				url: 'blog/getArticle',
-				type: 'POST',
-				crossDomain: true,
-				xhrFields: {
-					withCredentials: true
-				},
-				data: {articleId: "56a3e4a3b4ba74e8042c79c2"},
-				success: function (data, textStatus, jqXHR) {
-					//data: return data from server
-					console.log(data);
-				},
-				error: function (jqXHR, textStatus, errorThrown) {
-					//if fails
-					alert('it didnt work');
-				}
-			});
-		});
-
-		$('.test-button-dude3').on('click', function () {
-			$.ajax({
-				url: 'blog/postComment',
-				type: 'POST',
-				crossDomain: true,
-				xhrFields: {
-					withCredentials: true
-				},
-				data: {articleId: "56a3e4a3b4ba74e8042c79c2", content: 'ibaaah ta u zvqra ue'},
-				success: function (data, textStatus, jqXHR) {
-					//data: return data from server
-					console.log(data);
-				},
-				error: function (jqXHR, textStatus, errorThrown) {
-					//if fails
-					alert('it didnt work');
-				}
-			});
-		});
-
-		// login request
+	// login
+	function loginUser () {
 		$("#loginForm").submit(function (e) {
 			e.preventDefault();
 
@@ -75,17 +15,16 @@ var userActionsModule = (function () {
 				postData: postData,
 				successCallback: function(data) {
 					notifier.notifyForUserActions('success','You have logged in successfully! :)');
-					$('#modalLoginForm').hide();
-					$('.modal-backdrop.in').hide();
-
 				},
 				errorCallback: function() {
 					notifier.notifyForUserActions('error','Wrong username or password. Please try again! :(');
 				}
 			});
 		});
+	}
 
-		// register request
+	// register
+	function registerUser () {
 		$("#registerForm").submit(function (e) {
 			e.preventDefault();
 
@@ -98,25 +37,80 @@ var userActionsModule = (function () {
 				postData: postData,
 				successCallback: function(data) {
 					notifier.notifyForUserActions('success','Registration is successfully made :)');
-					$('#modalRegisterForm').hide();
-					$('.modal-backdrop.in').hide();
 				},
 				errorCallback: function() {
 					notifier.notifyForUserActions('error','Error while registration. Please try again! :(');
 				}
 			});
 		});
+	}
 
-		// comment
-		$('#commentForm').submit(function (e){
+	// comment
+	function postComment () {
+		$('.add-comment-btn').off('click').on('click',function (e){
 			e.preventDefault();
 
-			var $this = $(this);
+			var $this = $(this),
+				postData = $('#commentForm').serializeArray(),
+				articleId = $('#commentForm').data('article-id'),
+				formURL = $('#commentForm').attr("action");
+
+			$.ajax({
+				url: 'blog/postComment',
+				type: 'POST',
+				crossDomain: true,
+				xhrFields: {
+					withCredentials: true
+				},
+				data: {
+					articleId: articleId,
+					content: postData[0].value
+				},
+				success: function (data, textStatus, jqXHR) {
+					var commentContent = data.comment.content.trim(' '),
+						newPostedCommentMarkup = '';
+
+					newPostedCommentMarkup = '<div class="row">'
+						+ '<div class="col-md-2 user-comments">'
+						+ '	<div class="project user-image-container">'
+								+ '<img src="images/user-charlie.jpg" class="user-image img-responsive" alt="Make A Wish"/>'
+							+ '</div>'
+							+ '<span class="comment-date ">12-13-2011</span>'
+						+ '</div>'
+					+ '<div class="col-md-10 user-comment-balloon">'
+						+ '<div class="comment-container">'
+							+ '	<div class="comment-meta commentmetadata">'
+									+ '<span class="fn">Chalie Sheen</span>'
+									+ ' says:'
+								+ '</div>'
+							+ '<div class="comment-content">'
+									+ '<p>'
+										+ commentContent
+									+ '</p>'
+									+ '<a href="#" class="readmore more-comments pull-right"><span>Read More</span></a>'
+								+ '</div>'
+							+ '</div>'
+						+ '<div class="comment-arrow hidden-xs hidden-sm"></div>'
+						+ '</div>'
+					+ '</div>';
+
+					$('.comments-container').append(newPostedCommentMarkup);
+
+					notifier.notifyForUserActions('success', 'Your comment posted successfully!');
+					$(document).click();
+					console.log(data);
+				},
+				error: function (jqXHR, textStatus, errorThrown) {
+					alert('it didnt work');
+				}
+			});
 		});
 	}
 
 	return {
-		addUserActionsEvents: addUserActionsEvents
+		loginUser: loginUser,
+		postComment: postComment,
+		registerUser: registerUser
 	};
 
 })();

@@ -4,8 +4,14 @@ var menuModule = (function () {
 	function addEvents() {
 		$('.home').off('click').on('click', function () {
 			$('#body-container').html(templates.home());
+
 			addEvents();
-			startCarousel();
+		});
+
+		$('.breadcrumb-home').off('click').on('click', function () {
+			$('#body-container').html(templates.home());
+
+			addEvents();
 		});
 
 		$('.recentposts').off('click').on('click', function () {
@@ -15,12 +21,48 @@ var menuModule = (function () {
 
 		$('.comments').off('click').on('click', function () {
 			$('#body-container').html(templates.comments());
-			addEvents();
+
+			requestsModule.getArticleById({
+				successCallback: function(data) {
+					$('.post-title-content').text(data.article.content);
+					$('.post-title-link').text(data.article.title);
+					$('.category-title').text(data.article.title);
+					$('.current-blog-section').text(data.article.title);
+					$('.weekly-category-titile').text(data.article.title);
+					$('#commentForm').data('article-id', data.article._id);
+
+					addEvents();
+					userActionsModule.postComment();
+				},
+				errorCallback: function(data) {
+
+				}
+			});
 		});
 
 		$('.features').off('click').on('click', function () {
 			$('#body-container').html(templates.portfolio());
+
 			addEvents();
+		});
+
+		$('.active-img').hover(function () {
+			var $this = $(this),
+				$overlay = $this.siblings('.overlay'),
+				$overlayTitle = $overlay.children('.active-img-title');
+
+			$overlay.removeClass('hidden');
+			$('.active-img-title').removeClass('hidden');
+			$('.additional').removeClass('hidden');
+
+		}, function () {
+			var $this = $(this),
+				$overlay = $this.siblings('.overlay'),
+				$overlayTitle = $overlay.children('.active-img-title');
+
+			$overlay.addClass('hidden');
+			$('.active-img-title').addClass('hidden');
+			$('.additional').addClass('hidden');
 		});
 
 		$('.zoom-icon').off('click').on('click', function() {
@@ -29,78 +71,20 @@ var menuModule = (function () {
 				$popupContainer = $this.siblings('.bigger-view');
 
 			$popupContainer.removeClass('hidden');
+
 			addEvents();
 		});
 
 		$('.leave-comment').off('click').on('click', function () {
 			$('.leave-comment-modal').removeClass('hidden');
-			console.log('ksksks');
+
 			addEvents();
 		});
 	}
 
-	function startCarousel() {
-		var defaultCss = {
-			width: 240,
-			height: 150,
-			marginTop: 50,
-			marginRight: 10,
-			marginLeft: 10,
-			opacity: 0.4
-		};
-
-		var selectedCss = {
-			width: 500,
-			height: 434,
-			marginTop: -30,
-			marginRight: -105,
-			marginLeft: -105,
-			opacity: 1
-		};
-
-		var aniOpts = {
-			queue: false,
-			duration: 1000,
-			easing: 'elastic'
-		};
-
-		var $car = $('#carousel');
-
-		for ( var a = 0; a < 3; a++ ) {
-			$car.prepend( '<div />' );
-		}
-
-		for ( var b = 0; a < 3; b++ ) {
-			$car.append( '<div />' );
-		}
-
-		$car.find('img').css('zIndex', 1).css( defaultCss );
-		$car.find('img').eq(0).css('zIndex', 2).css( selectedCss );
-
-		$car.carouFredSel({
-			circular: true,
-			infinite: true,
-			width: '100%',
-			height: 305,
-			items: 7,
-			prev: '#prev',
-			next: '#next',
-			auto: true,
-			scroll: {
-				items: 1,
-				duration: 1000,
-				easing: 'elastic',
-				onBefore: function( data ) {
-					data.items.old.eq(3).find('img').css('zIndex', 1).animate( defaultCss, aniOpts );
-					data.items.visible.eq(3).find('img').css('zIndex', 2).animate( selectedCss, aniOpts );
-				}
-			}
-		});
-	}
 
 	return {
-		addEvents: addEvents,
-		startCarousel: startCarousel
+		addEvents: addEvents
 	};
 
 })();

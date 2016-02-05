@@ -1,25 +1,23 @@
-/**
- * Created by Elena on 21/01/2016.
- */
+'use strict';
 
 var mongoose = require('mongoose'),
-    Schema = mongoose.Schema;
+	Schema = mongoose.Schema;
 
 var Comment = new Schema({
-    _creator: {
-        type: Schema.Types.ObjectId,
-        ref: 'User',
-        required: true
-    },
-    _article: {
-        type: Schema.Types.ObjectId,
-        ref: 'Article',
-        required: true
-    },
-    content: {
-        type: String,
-        required: true
-    }
+	_creator: {
+		type: Schema.Types.ObjectId,
+		ref: 'User',
+		required: true
+	},
+	_article: {
+		type: Schema.Types.ObjectId,
+		ref: 'Article',
+		required: true
+	},
+	content: {
+		type: String,
+		required: true
+	}
 });
 
 module.exports = mongoose.model('Comment', Comment);
