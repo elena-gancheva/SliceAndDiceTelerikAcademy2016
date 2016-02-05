@@ -14,6 +14,12 @@ var menuModule = (function () {
 			addEvents();
 		});
 
+		$('.logo-img').off('click').on('click', function () {
+			$('#body-container').html(templates.home());
+
+			addEvents();
+		});
+
 		$('.recentposts').off('click').on('click', function () {
 			$('#body-container').html(templates.recentposts());
 			addEvents();
