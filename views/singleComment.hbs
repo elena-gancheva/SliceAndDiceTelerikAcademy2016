@@ -1,0 +1,23 @@
+<div class="row user-comment-row data-comment-id={{{commentId}}}">
+	<div class="col-md-2 user-comments">
+		<div class="project user-image-container">
+			<img src="{{{userImageUrl}}}" class="user-image img-responsive" alt="User image"/>
+		</div>
+		<span class="comment-date ">{{{commentDate}}}</span>
+	</div>
+	<div class="col-md-10 user-comment-balloon">
+		<div class="comment-container">
+			<div class="comment-meta commentmetadata">
+				<span class="fn">{{{username}}}</span>
+				says:
+			</div>
+			<div class="comment-content">
+				<p>
+					{{{commentContent}}}
+				</p>
+				<a href="#" class="readmore more-comments pull-right"><span class"reply-button" data-toggle="modal" data-target="#replyCommentForm" rel="media">Reply</span></a>
+			</div>
+		</div>
+		<div class="comment-arrow hidden-xs hidden-sm"></div>
+	</div>
+</div>

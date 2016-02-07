@@ -3,18 +3,18 @@ var userActionsModule = (function () {
 
 	// login
 	function loginUser () {
-		$("#loginForm").submit(function (e) {
+		$(".login-button").off('click').on('click', function (e) {
 			e.preventDefault();
 
 			var $this = $(this),
-				postData = $this.serializeArray(),
-				formURL = $this.attr("action");
+				postData = $('#loginForm').serializeArray(),
+				formURL = $('#loginForm').attr("action");
 
 			requestsModule.loginUser({
 				url: formURL,
 				postData: postData,
 				successCallback: function(data) {
-					notifier.notifyForUserActions('success','You have logged in successfully! :)');
+					notifier.notifyForUserActions('success','Welcome, ' + data.user.username + ' !:)');
 				},
 				errorCallback: function() {
 					notifier.notifyForUserActions('error','Wrong username or password. Please try again! :(');
@@ -25,12 +25,12 @@ var userActionsModule = (function () {
 
 	// register
 	function registerUser () {
-		$("#registerForm").submit(function (e) {
+		$(".register-button").off('click').on('click', function (e) {
 			e.preventDefault();
 
 			var $this = $(this),
-				postData = $this.serializeArray(),
-				formURL = $this.attr("action");
+				postData = $('#registerForm').serializeArray(),
+				formURL = $('#registerForm').attr("action");
 
 			requestsModule.registerUser({
 				url: formURL,
@@ -47,61 +47,48 @@ var userActionsModule = (function () {
 
 	// comment
 	function postComment () {
-		$('.add-comment-btn').off('click').on('click',function (e){
+		$('.add-comment-btn').off('click').on('click',function (e) {
 			e.preventDefault();
 
 			var $this = $(this),
 				postData = $('#commentForm').serializeArray(),
 				articleId = $('#commentForm').data('article-id'),
-				formURL = $('#commentForm').attr("action");
+				formURL = $('#commentForm').attr("action"),
+				commentPostDate,
+				commentCounter = parseInt($('.post-title').text());
 
-			$.ajax({
-				url: 'blog/postComment',
-				type: 'POST',
-				crossDomain: true,
-				xhrFields: {
-					withCredentials: true
-				},
-				data: {
-					articleId: articleId,
-					content: postData[0].value
-				},
-				success: function (data, textStatus, jqXHR) {
+			requestsModule.postComment({
+				articleId: articleId,
+				content: postData[0].value,
+				successCallback: function(data) {
 					var commentContent = data.comment.content.trim(' '),
-						newPostedCommentMarkup = '';
+						newPostedCommentMarkup = '',
+						userId = data.comment._creator;
 
-					newPostedCommentMarkup = '<div class="row">'
-						+ '<div class="col-md-2 user-comments">'
-						+ '	<div class="project user-image-container">'
-								+ '<img src="images/user-charlie.jpg" class="user-image img-responsive" alt="Make A Wish"/>'
-							+ '</div>'
-							+ '<span class="comment-date ">12-13-2011</span>'
-						+ '</div>'
-					+ '<div class="col-md-10 user-comment-balloon">'
-						+ '<div class="comment-container">'
-							+ '	<div class="comment-meta commentmetadata">'
-									+ '<span class="fn">Chalie Sheen</span>'
-									+ ' says:'
-								+ '</div>'
-							+ '<div class="comment-content">'
-									+ '<p>'
-										+ commentContent
-									+ '</p>'
-									+ '<a href="#" class="readmore more-comments pull-right"><span>Read More</span></a>'
-								+ '</div>'
-							+ '</div>'
-						+ '<div class="comment-arrow hidden-xs hidden-sm"></div>'
-						+ '</div>'
-					+ '</div>';
+					commentPostDate = moment(data.comment.date).format('MM-DD-YYYY');
+					// get user by id -> the comment's author
+					requestsModule.getUserById({
+						userId: userId,
+						successCallback: function(data){
+							newPostedCommentMarkup = templates.singleComment({
+								commentDate: commentPostDate,
+								username: data.user.username,
+								commentContent: commentContent,
+								userImageUrl: data.user.userImageUrl
+							});
 
-					$('.comments-container').append(newPostedCommentMarkup);
-
-					notifier.notifyForUserActions('success', 'Your comment posted successfully!');
-					$(document).click();
-					console.log(data);
+							commentCounter += 1;
+							$('.comments-container').append(newPostedCommentMarkup);
+							$('.post-title').text(commentCounter + ' Comments');
+							notifier.notifyForUserActions('success', 'Your comment was posted successfully! :)');
+						},
+						errorCallback: function() {
+							notifier.notifyForUserActions('error', 'Wrong user data given! :(');
+						}
+					});
 				},
-				error: function (jqXHR, textStatus, errorThrown) {
-					alert('it didnt work');
+				errorCallback: function(){
+					notifier.notifyForUserActions('error', 'Your comment was not posted! :(');
 				}
 			});
 		});

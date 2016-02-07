@@ -14,6 +14,10 @@ var Comment = new Schema({
 		ref: 'Article',
 		required: true
 	},
+	date: {
+		type: Date,
+		default: Date.now
+	},
 	content: {
 		type: String,
 		required: true

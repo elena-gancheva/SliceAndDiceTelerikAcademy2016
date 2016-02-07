@@ -3,7 +3,6 @@ var mongoose = require('mongoose');
 var User = require('../models/User');
 
 exports.register = function (req, res) {
-	console.log("registering: " + req.body.firstName);
 	User.register(new User({
 		username: req.body.username,
 		firstName: req.body.firstname,
@@ -22,7 +21,6 @@ exports.register = function (req, res) {
 };
 
 exports.login = function (req, res, next) {
-
 	User.authenticate()(req.body.username, req.body.password, function (err, user, options) {
 		if (err) return next(err);
 		if (user === false) {
@@ -39,22 +37,5 @@ exports.login = function (req, res, next) {
 			});
 		}
 	});
-
 };
 
-exports.getLogin = function (req, res) {
-	console.log(req.user);
-	if (req.user) {
-
-		return res.send({
-			success: true,
-			user: req.user
-		});
-
-	} //res.send(500, {status:500, message: 'i
-
-	res.send({
-		success: false,
-		message: 'not authorized'
-	});
-};

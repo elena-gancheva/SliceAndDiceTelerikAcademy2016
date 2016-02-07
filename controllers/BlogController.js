@@ -2,8 +2,8 @@
 var BlogService = require('../services/BlogService');
 
 exports.postArticle = function (req, res) {
-	var user = req.user;
-	var data = req.body;
+	var user = req.user,
+		data = req.body;
 
 	BlogService.createArticle({data, user}, function (data) {
 		res.json(data);
@@ -18,10 +18,18 @@ exports.getArticleById = function (req, res) {
 	});
 };
 
-exports.commentArticle = function (req, res) {
-	var user = req.user;
+exports.getUserById = function(req, res) {
 	var data = req.body;
-	var article;
+
+	BlogService.getUserById(data, function (data) {
+		res.json(data);
+	});
+}
+
+exports.commentArticle = function (req, res) {
+	var user = req.user,
+		data = req.body,
+		article;
 
 	BlogService.getArticleById({articleId: data.articleId}, function (articleData) {
 		if (articleData.success) {

@@ -11,13 +11,11 @@ var requestsModule = (function () {
 				if( typeof options.successCallback === 'function' ) {
 					options.successCallback( data );
 				}
-				// alert(this.data + "," + this.url);
 			},
 			error: function (jqXHR, textStatus, errorThrown) {
 				if( typeof options.errorCallback === 'function' ) {
 					options.errorCallback( jqXHR.responseText );
 				}
-				// alert('it didnt work');
 			}
 		});
 	}
@@ -32,7 +30,6 @@ var requestsModule = (function () {
 				if( typeof options.successCallback === 'function' ) {
 					options.successCallback( data );
 				}
-				// alert(this.data + "," + this.url);
 			},
 			error: function (jqXHR, textStatus, errorThrown) {
 				if( typeof options.errorCallback === 'function' ) {
@@ -51,7 +48,7 @@ var requestsModule = (function () {
 				withCredentials: true
 			},
 			data: {
-				articleId: "56b3cd01a42a73801bfe4764"
+				articleId: "56b79459f651374c10097472"
 			},
 			success: function (data, textStatus, jqXHR) {
 				if( typeof options.successCallback === 'function' ) {
@@ -61,7 +58,30 @@ var requestsModule = (function () {
 			error: function (jqXHR, textStatus, errorThrown) {
 				if( typeof options.errorCallback === 'function' ) {
 					options.errorCallback( jqXHR.responseText );
-					alert('it didnt work');
+				}
+			}
+		});
+	}
+
+	function getUserById (options) {
+		$.ajax({
+			url: 'blog/getUserById',
+			type: 'POST',
+			crossDomain: true,
+			xhrFields: {
+				withCredentials: true
+			},
+			data: {
+				userId: options.userId
+			},
+			success: function(data) {
+				if( typeof options.successCallback === 'function' ) {
+					options.successCallback( data );
+				}
+			},
+			error: function(jqXHR, textStatus, errorThrown) {
+				if( typeof options.errorCallback === 'function' ) {
+					options.errorCallback( jqXHR.responseText );
 				}
 			}
 		});
@@ -72,12 +92,14 @@ var requestsModule = (function () {
 			url: 'blog/postComment',
 			type: "POST",
 			crossDomain: true,
-			data: options.postData,
+			data: {
+				articleId: options.articleId,
+				content: options.content
+			},
 			success: function (data) {
 				if( typeof options.successCallback === 'function' ) {
 					options.successCallback( data );
 				}
-				// alert(this.data + "," + this.url);
 			},
 			error: function (jqXHR, textStatus, errorThrown) {
 				if( typeof options.errorCallback === 'function' ) {
@@ -91,6 +113,7 @@ var requestsModule = (function () {
 		registerUser: registerUser,
 		loginUser: loginUser,
 		getArticleById: getArticleById,
+		getUserById: getUserById,
 		postComment: postComment
 	};
 

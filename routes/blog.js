@@ -19,4 +19,6 @@ router.post('/postComment', BlogController.commentArticle);
 
 router.post('/getArticle', BlogController.getArticleById);
 
+router.post('/getUserById', BlogController.getUserById);
+
 module.exports = router;

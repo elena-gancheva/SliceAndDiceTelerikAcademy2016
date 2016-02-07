@@ -40,6 +40,10 @@ body {
 	background-color: #15191f;
 }
 
+div.toast-message {
+	font-size: 20px;
+}
+
 .container-fluid {
 	margin: 0;
 	padding: 0;

@@ -361,7 +361,7 @@
 	</div>
 </div>
 
-<!-- LogIN Modal -->
+<!-- Login Modal -->
 <div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog"
 	 aria-labelledby="loginModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
@@ -380,7 +380,7 @@
 
 			<!-- Modal Body -->
 			<div class="modal-body">
-				<form role="form" id="loginForm" action="login" method="post">
+				<form role="form" id="loginForm" action="login" method="post" onsubmit="return false;">
 					<div class="form-group">
 						<label for="exampleInputEmail1">User name</label>
 						<input type="text" class="form-control" name="username"
@@ -392,7 +392,7 @@
 							   id="exampleInputPassword1" placeholder="Password"/>
 					</div>
 					<div class="modal-footer">
-						<button type="submit" class="btn btn-success">
+						<button type="submit" class="btn btn-success login-button">
 							Log in
 						</button>
 					</div>
@@ -421,7 +421,7 @@
 			</div>
 			<!-- Modal Body -->
 			<div class="modal-body">
-				<form role="form" id="registerForm" action="register" method="post">
+				<form role="form" id="registerForm" action="register" method="post" onsubmit="return false;">
 					<div class="form-group">
 						<label for="register-username">User name</label>
 						<input type="text" class="form-control" name="username"
@@ -443,7 +443,7 @@
 							   id="register-password" placeholder="Password"/>
 					</div>
 					<div class="modal-footer">
-						<button type="submit" class="btn btn-success">
+						<button type="submit" class="btn btn-success register-button">
 							Join now
 						</button>
 					</div>
