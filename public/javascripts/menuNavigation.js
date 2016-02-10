@@ -80,7 +80,13 @@ var menuModule = (function () {
 					userActionsModule.postComment();
 				},
 				errorCallback: function(data) {
+					var userError = JSON.parse(data);
 
+					$('#body-container').html(templates.error({
+						error: userError.error
+					}));
+
+					notifier.notifyForUserActions('error', 'You are not registered or logged in!');
 				}
 			});
 		});

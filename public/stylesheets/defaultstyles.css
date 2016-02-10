@@ -53,6 +53,15 @@ div.toast-message {
 	margin: auto;
 }
 
+.server-error {
+	padding-top: 60px;
+	padding-bottom: 60px;
+	color: #E74D3E;
+	text-shadow: none;
+	font-size: 40px;
+	text-align: center;
+}
+
 .overlay {
 	position: absolute;
 	cursor: pointer;
