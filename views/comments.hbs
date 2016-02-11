@@ -133,7 +133,7 @@
 					<div class="comments-container">
 
 					<!-- single comment vision -->
-					<!-- <div class="row">
+					<div class="row">
 						<div class="col-md-2 user-comments">
 							<div class="project user-image-container">
 								<img src="images/user-charlie.jpg" class="user-image img-responsive" alt="Make A Wish"/>
@@ -158,10 +158,10 @@
 							</div>
 							<div class="comment-arrow hidden-xs hidden-sm"></div>
 						</div>
-					</div> -->
+					</div>
 
 					<!-- reply vision -->
-					<!-- <div class="row">
+					<div class="row">
 						<div class="col-md-2 user-comments col-md-offset-2">
 							<div class="project user-image-container">
 								<img src="images/user-charlie.jpg" class="user-image img-responsive" alt="Make A Wish"/>
@@ -183,7 +183,7 @@
 							</div>
 							<div class="comment-arrow hidden-xs hidden-sm"></div>
 						</div>
-					</div> -->
+					</div>
 
 					</div>
 
@@ -328,6 +328,97 @@
 					<li class="pull-right author border-right">Designed by <a href="#">Elegant WordPress Themes</a></li>
 				</ul>
 
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Login Modal -->
+<div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog"
+	 aria-labelledby="loginModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<!-- Modal Header -->
+			<div class="modal-header">
+				<button type="button" class="close"
+						data-dismiss="modal">
+					<span aria-hidden="true">&times;</span>
+					<span class="sr-only">Close</span>
+				</button>
+				<h2 class="modal-title" id="loginModalLabel">
+					Log In Here
+				</h2>
+			</div>
+
+			<!-- Modal Body -->
+			<div class="modal-body">
+				<form role="form" id="loginForm" action="login" method="post" onsubmit="return false;">
+					<div class="form-group">
+						<label for="exampleInputEmail1">User name</label>
+						<input type="text" class="form-control" name="username"
+							   id="exampleInputEmail1" placeholder="User name"/>
+					</div>
+					<div class="form-group">
+						<label for="exampleInputPassword1">Password</label>
+						<input type="password" class="form-control" name="password"
+							   id="exampleInputPassword1" placeholder="Password"/>
+					</div>
+					<div class="modal-footer">
+						<button type="submit" class="btn btn-success login-button">
+							Log in
+						</button>
+					</div>
+				</form>
+
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Register Modal -->
+<div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog"
+	 aria-labelledby="registerModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<!-- Modal Header -->
+			<div class="modal-header">
+				<button type="button" class="close"
+						data-dismiss="modal">
+					<span aria-hidden="true">&times;</span>
+					<span class="sr-only">Close</span>
+				</button>
+				<h2 class="modal-title" id="registerModalLabel">
+					Join Today
+				</h2>
+			</div>
+			<!-- Modal Body -->
+			<div class="modal-body">
+				<form role="form" id="registerForm" action="register" method="post" onsubmit="return false;">
+					<div class="form-group">
+						<label for="register-username">User name</label>
+						<input type="text" class="form-control" name="username"
+							   id="register-username" placeholder="User name"/>
+					</div>
+					<div class="form-group">
+						<label for="register-firstname">First name</label>
+						<input type="text" class="form-control" name="firstname"
+							   id="register-firstname" placeholder="First name"/>
+					</div>
+					<div class="form-group">
+						<label for="user-image">Your image url</label>
+						<input type="text" class="form-control" name="userImageUrl"
+							   id="user-image" placeholder="Image url"/>
+					</div>
+					<div class="form-group">
+						<label for="register-password">Password</label>
+						<input type="password" class="form-control" name="password"
+							   id="register-password" placeholder="Password"/>
+					</div>
+					<div class="modal-footer">
+						<button type="submit" class="btn btn-success register-button">
+							Join now
+						</button>
+					</div>
+				</form>
 			</div>
 		</div>
 	</div>

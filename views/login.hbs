@@ -1,29 +1,40 @@
-<div id="login-register-popup">
-	<form id="login" action="login" method="post">
-		<fieldset>
-			User name:<br>
-			<input type="text" name="username" value="Mickey"><br>
-			Password:<br>
-			<input type="password" name="password" value="Mouse"><br><br>
-			<input id="login-button" type="submit" value="Login">
-		</fieldset>
-	</form>
+<div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog"
+	 aria-labelledby="loginModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<!-- Modal Header -->
+			<div class="modal-header">
+				<button type="button" class="close"
+						data-dismiss="modal">
+					<span aria-hidden="true">&times;</span>
+					<span class="sr-only">Close</span>
+				</button>
+				<h2 class="modal-title" id="loginModalLabel">
+					Log In Here
+				</h2>
+			</div>
 
-	<form id="register" action="register" method="post">
-		<fieldset>
-			User name:<br>
-			<input type="text" name="username" value="Mickey"><br>
-			First name:<br>
-			<input type="text" name="firstname" value="Mickey"><br>
-			Password:<br>
-			<input type="password" name="password" value="Mouse"><br><br>
-			<input id="register-button" type="submit" value="Register">
-		</fieldset>
-	</form>
+			<!-- Modal Body -->
+			<div class="modal-body">
+				<form role="form" id="loginForm" action="login" method="post" onsubmit="return false;">
+					<div class="form-group">
+						<label for="exampleInputEmail1">User name</label>
+						<input type="text" class="form-control" name="username"
+							   id="exampleInputEmail1" placeholder="User name"/>
+					</div>
+					<div class="form-group">
+						<label for="exampleInputPassword1">Password</label>
+						<input type="password" class="form-control" name="password"
+							   id="exampleInputPassword1" placeholder="Password"/>
+					</div>
+					<div class="modal-footer">
+						<button type="submit" class="btn btn-success login-button">
+							Log in
+						</button>
+					</div>
+				</form>
 
-	<button class="test-button-dude">Post Article</button>
-
-	<button class="test-button-dude2">Get Article</button>
-
-	<button class="test-button-dude3">Post Comment</button>
+			</div>
+		</div>
+	</div>
 </div>

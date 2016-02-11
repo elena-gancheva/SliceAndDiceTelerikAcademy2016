@@ -87,16 +87,10 @@ var menuModule = (function () {
 					}));
 
 					notifier.notifyForUserActions('error', 'You are not registered or logged in!');
+					addEvents();
 				}
 			});
 		});
-
-		// $('.reply-button').off('click').on('click', function (){
-		// 	var $this = $(this),
-		// 		$repliedComment = $this.parent('.user-comment-row');
-
-		// 	$('')
-		// });
 
 		$('.features').off('click').on('click', function () {
 			$('#body-container').html(templates.portfolio());
